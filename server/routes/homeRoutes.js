@@ -8,7 +8,7 @@ const router = express.Router();
 
 router.get('/home', auth, home);
 router.get('/', () => {
-    res.status(200).send("Etark")
+    console.log("etark")
 })
 
 export default router;
