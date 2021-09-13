@@ -8,7 +8,7 @@ const router = express.Router();
 
 router.get('/home', auth, home);
 router.get('/', () => {
-    resizeBy.send("hello uuu")
+    res.send("hello uuu")
     console.log("etarkisworkingss")
 })
 
