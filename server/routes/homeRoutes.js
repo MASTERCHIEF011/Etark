@@ -7,7 +7,7 @@ const router = express.Router();
 
 
 router.get('/home', auth, home);
-router.get('/', () => {
+router.get('/', (req, res) => {
     res.send("hello uuu")
     console.log("etarkisworkingss")
 })
