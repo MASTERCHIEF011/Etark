@@ -5,8 +5,9 @@ import mongoose from 'mongoose';
 import User from "../models/user.js"
 
 export const signup = async (req, res) => {
-    const { email, password, confirmPassword, name } = req.body;
+    let { email, password, confirmPassword, name } = req.body;
     try {
+        email = email.toLowerCase()
         const existingUser = await User.findOne({ email });
 
         if (existingUser) {
@@ -30,8 +31,9 @@ export const signup = async (req, res) => {
 }
 
 export const signin = async (req, res) => {
-    const { email, password } = req.body;
+    let { email, password } = req.body;
     try {
+        email = email.toLowerCase()
         const existingUser = await User.findOne({ email });
         if (!existingUser) {
             return res.status(404).json({ message: "User doesn't exist!" });
